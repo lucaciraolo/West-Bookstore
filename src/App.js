@@ -88,7 +88,7 @@ function App() {
           </div>
         </nav>
         {routes}
-        <Search />
+        {/* <Search /> */}
       </Router>
     </UserContext.Provider>
   );

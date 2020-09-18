@@ -59,7 +59,7 @@ function App() {
               <Link className="navbar-item" to="/">
                 Home
               </Link>
-              <Link className="navbar-item" to="/mylist">
+              <Link className="navbar-item" to="/search">
                 Search
               </Link>
               <Link className="navbar-item" to="/ratings">

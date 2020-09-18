@@ -1,5 +1,5 @@
 import React from 'react';
-import { Level, Side, Container } from "react-bulma-components"
+import { Level, Container } from "react-bulma-components"
 
 import Title from "../components/Title";
 import BookCard from "../components/BookCard";

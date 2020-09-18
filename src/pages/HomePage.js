@@ -4,12 +4,18 @@ import BookCard from "../components/BookCard";
 
 const HomePage = () => {
 
-
   return (
-    <div>
+      <div className="container">
       <p>Home Page</p>
-      <BookCard />
-    </div>
+        <div>
+          
+        </div>
+        <BookCard />
+        <BookCard />
+        <BookCard />
+        <BookCard />
+
+      </div>
   );
 }
  

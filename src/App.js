@@ -1,22 +1,22 @@
 import React, { } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import logo from "./assets/BJSS.svg";
 
+import HomePage from "./pages/HomePage";
 import './App.sass';
 
 let routes = (
   <Switch>
-    {/* <Route exact path={["/", "/home"]} component={Home} />
-    <Route exact path="/login" component={Hello2} /> */}
+    <Route exact path={["/", "/home"]} component={HomePage} />
   </Switch>
 )
 function App() {
   return (
     <Router>
-      {routes}
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
+          <a class="navbar-item" href="#">
+            <img src={logo} width="112" height="28" />
           </a>
 
           <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -34,10 +34,6 @@ function App() {
             <a class="navbar-item">
               Search Book
             </a>
-{/* 
-            <Link to={"/Book"} className="nav-item">
-                      Book
-            </Link> */}
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
                 More
@@ -72,6 +68,7 @@ function App() {
           </div>
         </div>
       </nav>
+      {routes}
     </Router>
   );
 }

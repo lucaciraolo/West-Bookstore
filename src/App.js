@@ -3,11 +3,15 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import logo from "./assets/BJSS.svg";
 
 import HomePage from "./pages/HomePage";
+import MyListPage from "./pages/MyListPage";
+import RatingsPage from "./pages/RatingsPage";
 import './App.sass';
 
 let routes = (
   <Switch>
     <Route exact path={["/", "/home"]} component={HomePage} />
+    <Route exact path={["/mylist"]} component={MyListPage} />
+    <Route exact path={["/ratings"]} component={RatingsPage} />
   </Switch>
 )
 function App() {
@@ -15,54 +19,23 @@ function App() {
     <Router>
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item" href="#">
-            <img src={logo} width="112" height="28" />
-          </a>
-
-          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <img className="navbar-item" alt="BJSS logo" src={logo} width="112" height="28" />
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-          </a>
         </div>
 
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item">
-              Home
-            </a>
-            <a class="navbar-item">
-              Search Book
-            </a>
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                More
-              </a>
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  About
-                </a>
-                <a class="navbar-item">
-                  Jobs
-                </a>
-                <a class="navbar-item">
-                  Contact
-                </a>
-                <a class="navbar-item">
-                  Report an issue
-                </a>
-              </div>
-            </div>
+            <Link className="navbar-item" to="/">Home</Link>
+            <Link className="navbar-item" to="/mylist">My List</Link>
+            <Link className="navbar-item" to="/ratings">Global Ratings</Link>
           </div>
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a class="button is-light">
-                  Log in
-                </a>
+                <Link className="button is-primary"><strong>Sign up</strong></Link>
+                <Link className="button is-light">Log in</Link>
               </div>
             </div>
           </div>

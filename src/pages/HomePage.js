@@ -1,5 +1,6 @@
 import React from 'react';
 
+import BookCard from "../components/BookCard";
 
 const HomePage = () => {
 
@@ -7,6 +8,7 @@ const HomePage = () => {
   return (
     <div>
       <p>Home Page</p>
+      <BookCard />
     </div>
   );
 }

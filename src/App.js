@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import logo from "./assets/BJSS.svg";
-import Search from "./Search";
 
 import HomePage from "./pages/HomePage";
 import MyListPage from "./pages/MyListPage";
@@ -60,7 +59,7 @@ function App() {
                 Home
               </Link>
               <Link className="navbar-item" to="/mylist">
-                My List
+                Search
               </Link>
               <Link className="navbar-item" to="/ratings">
                 Global Ratings
@@ -71,9 +70,6 @@ function App() {
                 <div class="buttons">
                   {user === null && (
                     <>
-                      <Link className="button is-primary">
-                        <strong>Sign up</strong>
-                      </Link>
                       <Link className="button is-light" to="/login">
                         Log in
                       </Link>
@@ -91,7 +87,7 @@ function App() {
           </div>
         </nav>
         {routes}
-        <Search />
+        {/* <Search /> */}
       </Router>
     </UserContext.Provider>
   );

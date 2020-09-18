@@ -5,19 +5,18 @@ import './Search.css';
 
 function Search() {
 
-    const URL = "https://openlibrary.org/search.json?q=harry+potter&mode=everything";
+    const URL = "https://openlibrary.org/search.json?q=";
+    const SEARCHEND = "&mode=everything";
 
     const [searchTerm, setSearchTerm] = useState(null);
     const [searchBoxInput, setSearchBoxInput] = useState("");
     const [results, setResults] = useState([])
     useEffect(() => {
         async function fetchSearch() {
-            const resp = await fetch(URL);
+            const resp = await fetch(URL + encodeURI(searchTerm) + SEARCHEND);
             const books = await resp.json();
             setResults(books.docs);
-        }
-        fetchSearch();
-        
+        }        
     }, [searchTerm]);
     
 
@@ -34,11 +33,10 @@ function Search() {
       </header>
       <section>
           { results.map((result) => {
-              console.log(result);
               return (<div>
                   <h3>{result.title} </h3>
                   <p> {result.author_name && result.author_name.map((author) => author).join(',')} </p>
-                  <AddRating key={result}/>
+                  <AddRating bookKey={result.key.substring(7)}/>
                 </div>)
           })}
       </section>

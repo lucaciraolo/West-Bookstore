@@ -8,7 +8,7 @@ import RatingsPage from "./pages/RatingsPage";
 import "./App.sass";
 import { LoginPage } from "./pages/LoginPage";
 import { firebaseProject } from "./firebase";
-import SearchPage from './pages/SearchPage';
+import { SearchPage } from "./pages/SearchPage";
 
 export const UserContext = React.createContext(null);
 
@@ -18,6 +18,7 @@ let routes = (
     <Route exact path={["/search"]} component={SearchPage} />
     {/* <Route exact path={["/ratings"]} component={RatingsPage} /> */}
     <Route exact path={["/login"]} component={LoginPage} />
+    <Route exact path={["/search"]} component={SearchPage} />
   </Switch>
 );
 function App() {

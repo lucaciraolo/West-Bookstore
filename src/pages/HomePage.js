@@ -1,15 +1,19 @@
 import React from 'react';
+import { Level, Side, Container } from "react-bulma-components"
 
 import BookCard from "../components/BookCard";
 
 const HomePage = () => {
 
-
   return (
-    <div>
-      <p>Home Page</p>
-      <BookCard />
-    </div>
+      <Container breakpoint="widescreen">
+        <Level>
+          <BookCard />
+          <BookCard />
+          <BookCard />
+          <BookCard />
+        </Level>
+      </Container>
   );
 }
  

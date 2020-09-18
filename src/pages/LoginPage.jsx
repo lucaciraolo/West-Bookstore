@@ -33,16 +33,17 @@ export const LoginPage = () => {
   };
 
   const writeUserToFirestore = () => {
-    console.log("hello");
+    
   }
 
   const handleSignup = async () => {
     try {
       const res = await firebaseProject
-        .auth()
+        .auth() 
         .createUserWithEmailAndPassword(email, password);
       //success
       setError("");
+      writeUserToFirestore();
       console.log(res);
     } catch (err) {
       setError(err.message);

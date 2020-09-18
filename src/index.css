@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.space {
+  margin: 1em;
+}
+
+.space-title {
+  margin: 1.5em 1em 1em 1em;
+}

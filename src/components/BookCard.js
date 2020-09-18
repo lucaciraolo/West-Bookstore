@@ -1,28 +1,23 @@
-import React, { useState } from 'react';
-import { Card, Media, Content, Heading, Image } from "react-bulma-components"
+import React from 'react';
+import { Card, Media, Content, Heading } from "react-bulma-components"
 
-const BookCard = () => {
+const BookCard = ({title, desc, rating}) => {
 
   // image url, book title, short desc
 
   return (
     <Card className="space">
-      <Card.Image src="http://bulma.io/images/placeholders/1280x960.png" />
+      <Card.Header>
+        <Card.Header.Title>{title}</Card.Header.Title>
+      </Card.Header>
       <Card.Content>
         <Media>
-          <Media.Item renderAs="figure" position="left">
-            <Image size={64} alt="64x64" src="http://bulma.io/images/placeholders/128x128.png" />
-          </Media.Item>
           <Media.Item>
-            <Heading size={4}>John Smith</Heading>
-            <Heading subtitle size={6}>@johnsmith</Heading>
+            <Heading size={4}>Rating: {rating}</Heading>
           </Media.Item>
         </Media>
         <Content>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Phasellus nec iaculis mauris.
-          <br />
-          <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+          {desc}
         </Content>
       </Card.Content>
     </Card>

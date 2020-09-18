@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import logo from "./assets/BJSS.svg";
-import Search from "./components/Search";
 
 import HomePage from "./pages/HomePage";
 import MyListPage from "./pages/MyListPage";
@@ -16,8 +15,8 @@ export const UserContext = React.createContext(null);
 let routes = (
   <Switch>
     <Route exact path={["/", "/home"]} component={HomePage} />
-    <Route exact path={["/mylist"]} component={MyListPage} />
-    <Route exact path={["/ratings"]} component={RatingsPage} />
+    <Route exact path={["/search"]} component={SearchPage} />
+    {/* <Route exact path={["/ratings"]} component={RatingsPage} /> */}
     <Route exact path={["/login"]} component={LoginPage} />
     <Route exact path={["/search"]} component={SearchPage} />
   </Switch>
@@ -42,8 +41,8 @@ function App() {
   return (
     <UserContext.Provider value={user}>
       <Router>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
+        <nav className="navbar" role="navigation" aria-label="main navigation">
+          <div className="navbar-brand">
             <img
               className="navbar-item"
               alt="BJSS logo"
@@ -56,21 +55,21 @@ function App() {
             <span aria-hidden="true"></span>
           </div>
 
-          <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
+          <div id="navbarBasicExample" className="navbar-menu">
+            <div className="navbar-start">
               <Link className="navbar-item" to="/">
                 Home
               </Link>
-              <Link className="navbar-item" to="/mylist">
-                My List
+              <Link className="navbar-item" to="/search">
+                Search
               </Link>
               <Link className="navbar-item" to="/ratings">
                 Global Ratings
               </Link>
             </div>
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <div class="buttons">
+            <div className="navbar-end">
+              <div className="navbar-item">
+                <div className="buttons">
                   {user === null && (
                     <>
                       <Link className="button is-light" to="/login">
@@ -90,7 +89,6 @@ function App() {
           </div>
         </nav>
         {routes}
-        {/* <Search /> */}
       </Router>
     </UserContext.Provider>
   );

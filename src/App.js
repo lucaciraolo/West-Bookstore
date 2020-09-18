@@ -52,7 +52,7 @@ function App() {
                 <Link className="button is-primary">
                   <strong>Sign up</strong>
                 </Link>
-                <Link className="button is-light">Log in</Link>
+                <Link to="/login" className="button is-light">Log in</Link>
               </div>
             </div>
           </div>

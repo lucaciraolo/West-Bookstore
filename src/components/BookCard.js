@@ -6,8 +6,8 @@ const BookCard = () => {
   // image url, book title, short desc
 
   return (
-    <Card>
-      <Card.Image size="4by3" src="http://bulma.io/images/placeholders/1280x960.png" />
+    <Card className="space">
+      <Card.Image src="http://bulma.io/images/placeholders/1280x960.png" />
       <Card.Content>
         <Media>
           <Media.Item renderAs="figure" position="left">

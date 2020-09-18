@@ -71,9 +71,6 @@ function App() {
                 <div class="buttons">
                   {user === null && (
                     <>
-                      <Link className="button is-primary">
-                        <strong>Sign up</strong>
-                      </Link>
                       <Link className="button is-light" to="/login">
                         Log in
                       </Link>

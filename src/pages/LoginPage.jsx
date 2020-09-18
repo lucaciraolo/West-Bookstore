@@ -26,9 +26,21 @@ export const LoginPage = () => {
         .signInWithEmailAndPassword(email, password);
       //success
       setError("");
-      console.log(res);
     } catch (err) {
       console.error(err);
+      setError(err.message);
+    }
+  };
+
+  const handleSignup = async () => {
+    try {
+      const res = await firebaseProject
+        .auth()
+        .createUserWithEmailAndPassword(email, password);
+      //success
+      setError("");
+      console.log(res);
+    } catch (err) {
       setError(err.message);
     }
   };
@@ -53,6 +65,7 @@ export const LoginPage = () => {
         }}
       />
       <button onClick={handleLogin}>Log in</button>
+      <button onClick={handleSignup}>Sign up</button>
       <p>{error}</p>
     </div>
   );

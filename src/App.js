@@ -60,7 +60,7 @@ function App() {
                 Home
               </Link>
               <Link className="navbar-item" to="/mylist">
-                My List
+                Search
               </Link>
               <Link className="navbar-item" to="/ratings">
                 Global Ratings

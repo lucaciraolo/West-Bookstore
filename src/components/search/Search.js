@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
+import AddRating from './components/rating/AddRating'
+
 import './Search.css';
 
 function Search() {
@@ -37,6 +39,7 @@ function Search() {
               return (<div>
                   <h3>{result.title} </h3>
                   <p> {result.author_name && result.author_name.map((author) => author).join(',')} </p>
+                  <AddRating isbn={result.isbn}/>
                 </div>)
           })}
       </section>

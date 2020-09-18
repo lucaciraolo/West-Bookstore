@@ -32,6 +32,10 @@ export const LoginPage = () => {
     }
   };
 
+  const writeUserToFirestore = () => {
+    console.log("hello");
+  }
+
   const handleSignup = async () => {
     try {
       const res = await firebaseProject

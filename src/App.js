@@ -31,7 +31,6 @@ function App() {
             <a class="navbar-item">
               Home
             </a>
-
             <a class="navbar-item">
               Search Book
             </a>
@@ -39,12 +38,10 @@ function App() {
             <Link to={"/Book"} className="nav-item">
                       Book
             </Link> */}
-
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
                 More
               </a>
-
               <div class="navbar-dropdown">
                 <a class="navbar-item">
                   About
@@ -61,7 +58,6 @@ function App() {
               </div>
             </div>
           </div>
-
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">

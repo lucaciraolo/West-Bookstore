@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import BookCard from "../BookCard";
 import AddRating from "../rating/AddRating";
 
 function Search() {
@@ -6,7 +7,7 @@ function Search() {
   const SEARCHEND = "&mode=everything";
 
   const [loading, setLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchBoxInput, setSearchBoxInput] = useState("");
   const [results, setResults] = useState([]);
   useEffect(() => {
@@ -15,8 +16,9 @@ function Search() {
       const books = await resp.json();
       setResults(books.docs);
     }
-    fetchSearch();
-    setLoading(true);
+    if (searchTerm.length > 0) {
+      fetchSearch();
+    }
   }, [searchTerm]);
 
   return (
@@ -33,17 +35,17 @@ function Search() {
         <button onClick={() => setSearchTerm(searchBoxInput)}>Search</button>
       </header>
       <section>
+        {loading}
         {results.map((result) => {
+          const description =
+            result.author_name &&
+            result.author_name.map((author) => author).join(",");
           return (
-            <div>
-              <h3>{result.title} </h3>
-              <p>
-                {" "}
-                {result.author_name &&
-                  result.author_name.map((author) => author).join(",")}{" "}
-              </p>
-              <AddRating bookKey={result.key.substring(7)} />
-            </div>
+            <BookCard
+              bookKey={result.key.substring(7)}
+              title={result.title}
+              desc={description}
+            />
           );
         })}
       </section>

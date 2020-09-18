@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../App";
 import { firebaseProject } from "../firebase";
+import "firebase/firestore";
 
 export const LoginPage = () => {
   const user = useContext(UserContext);
@@ -32,8 +33,19 @@ export const LoginPage = () => {
     }
   };
 
-  const writeUserToFirestore = () => {
-    
+  const writeUserToFirestore = async(res) => {
+    var db = firebaseProject.firestore();
+    db.collection("Users")
+      .add({
+        UserID: res.user.uid
+      })
+      .then(function (docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function (error) {
+        console.error("Error adding document: ", error);
+      });
+
   }
 
   const handleSignup = async () => {
@@ -43,7 +55,7 @@ export const LoginPage = () => {
         .createUserWithEmailAndPassword(email, password);
       //success
       setError("");
-      writeUserToFirestore();
+      writeUserToFirestore(res);
       console.log(res);
     } catch (err) {
       setError(err.message);

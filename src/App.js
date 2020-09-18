@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import logo from "./assets/BJSS.svg";
-import Search from "./Search";
+import Search from "./components/Search";
 
 import HomePage from "./pages/HomePage";
 import MyListPage from "./pages/MyListPage";
@@ -9,6 +9,7 @@ import RatingsPage from "./pages/RatingsPage";
 import "./App.sass";
 import { LoginPage } from "./pages/LoginPage";
 import { firebaseProject } from "./firebase";
+import { SearchPage } from "./pages/SearchPage";
 
 export const UserContext = React.createContext(null);
 
@@ -18,6 +19,7 @@ let routes = (
     <Route exact path={["/mylist"]} component={MyListPage} />
     <Route exact path={["/ratings"]} component={RatingsPage} />
     <Route exact path={["/login"]} component={LoginPage} />
+    <Route exact path={["/search"]} component={SearchPage} />
   </Switch>
 );
 function App() {

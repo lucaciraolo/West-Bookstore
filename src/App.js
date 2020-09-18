@@ -8,14 +8,15 @@ import RatingsPage from "./pages/RatingsPage";
 import "./App.sass";
 import { LoginPage } from "./pages/LoginPage";
 import { firebaseProject } from "./firebase";
+import SearchPage from './pages/SearchPage';
 
 export const UserContext = React.createContext(null);
 
 let routes = (
   <Switch>
     <Route exact path={["/", "/home"]} component={HomePage} />
-    <Route exact path={["/mylist"]} component={MyListPage} />
-    <Route exact path={["/ratings"]} component={RatingsPage} />
+    <Route exact path={["/search"]} component={SearchPage} />
+    {/* <Route exact path={["/ratings"]} component={RatingsPage} /> */}
     <Route exact path={["/login"]} component={LoginPage} />
   </Switch>
 );
@@ -39,8 +40,8 @@ function App() {
   return (
     <UserContext.Provider value={user}>
       <Router>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
+        <nav className="navbar" role="navigation" aria-label="main navigation">
+          <div className="navbar-brand">
             <img
               className="navbar-item"
               alt="BJSS logo"
@@ -53,8 +54,8 @@ function App() {
             <span aria-hidden="true"></span>
           </div>
 
-          <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
+          <div id="navbarBasicExample" className="navbar-menu">
+            <div className="navbar-start">
               <Link className="navbar-item" to="/">
                 Home
               </Link>
@@ -65,9 +66,9 @@ function App() {
                 Global Ratings
               </Link>
             </div>
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <div class="buttons">
+            <div className="navbar-end">
+              <div className="navbar-item">
+                <div className="buttons">
                   {user === null && (
                     <>
                       <Link className="button is-light" to="/login">
@@ -87,7 +88,6 @@ function App() {
           </div>
         </nav>
         {routes}
-        {/* <Search /> */}
       </Router>
     </UserContext.Provider>
   );

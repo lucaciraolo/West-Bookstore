@@ -15,18 +15,6 @@ function Search() {
             setResults(books.docs);
         }        
     }, [searchTerm]);
-    
-  const [searchTerm, setSearchTerm] = useState(null);
-  const [searchBoxInput, setSearchBoxInput] = useState("");
-  const [results, setResults] = useState([]);
-  useEffect(() => {
-    async function fetchSearch() {
-      const resp = await fetch(URL);
-      const books = await resp.json();
-      setResults(books.docs);
-    }
-    fetchSearch();
-  }, [searchTerm]);
 
   return (
     <div className="App">

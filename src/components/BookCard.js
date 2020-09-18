@@ -17,7 +17,7 @@ const BookCard = ({ bookKey, title, desc, rating }) => {
           </Media.Item>
         </Media>
         <Content>{desc}</Content>
-        <AddRating bookKey={bookKey} />
+        <AddRating bookKey={bookKey} title={title} />
       </Card.Content>
     </Card>
   );

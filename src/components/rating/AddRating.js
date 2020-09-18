@@ -4,7 +4,7 @@ import { firebaseProject } from "../../firebase";
 
 import "./AddRating.css";
 
-export default function AddRating({ bookKey }) {
+export default function AddRating({ bookKey, title }) {
   const user = useContext(UserContext);
 
   const setRating = (rating) => {
@@ -14,6 +14,7 @@ export default function AddRating({ bookKey }) {
         UserID: user.uid,
         rating: rating,
         BookID: bookKey,
+        title: title,
       })
       .then(function (docRef) {
         console.log("Document written with ID: ", docRef.id);

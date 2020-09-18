@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import BookCard from "../BookCard";
-import AddRating from "../rating/AddRating";
 
 function Search() {
   const URL = "https://openlibrary.org/search.json?q=";

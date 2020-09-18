@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import logo from "./assets/BJSS.svg";
+import Search from "./Search";
 
 import HomePage from "./pages/HomePage";
 import MyListPage from "./pages/MyListPage";
@@ -58,6 +59,7 @@ function App() {
         </div>
       </nav>
       {routes}
+      <Search />
     </Router>
   );
 }

@@ -1,13 +1,13 @@
-import React from 'react';
-import Dropdown from '../components/Dropdown'
+import React from "react";
+import Dropdown from "../components/Dropdown";
 
 const MyListPage = () => {
-  return ( 
+  return (
     <div>
       <p>MyListPage</p>
       <Dropdown />
     </div>
-   );
-}
- 
+  );
+};
+
 export default MyListPage;

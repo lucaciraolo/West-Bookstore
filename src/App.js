@@ -8,7 +8,7 @@ import RatingsPage from "./pages/RatingsPage";
 import "./App.sass";
 import { LoginPage } from "./pages/LoginPage";
 import { firebaseProject } from "./firebase";
-import { SearchPage } from "./pages/SearchPage";
+import { SearchPage } from "./pages/SearchPage.js";
 
 export const UserContext = React.createContext(null);
 

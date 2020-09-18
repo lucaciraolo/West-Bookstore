@@ -33,11 +33,11 @@ export const LoginPage = () => {
     }
   };
 
-  const writeUserToFirestore = async(res) => {
+  const writeUserToFirestore = async (res) => {
     var db = firebaseProject.firestore();
     db.collection("Users")
       .add({
-        UserID: res.user.uid
+        UserID: res.user.uid,
       })
       .then(function (docRef) {
         console.log("Document written with ID: ", docRef.id);
@@ -45,13 +45,12 @@ export const LoginPage = () => {
       .catch(function (error) {
         console.error("Error adding document: ", error);
       });
-
-  }
+  };
 
   const handleSignup = async () => {
     try {
       const res = await firebaseProject
-        .auth() 
+        .auth()
         .createUserWithEmailAndPassword(email, password);
       //success
       setError("");

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Card, Media, Content, Heading } from "react-bulma-components"
+import React from "react";
+import { Card, Media, Content, Heading } from "react-bulma-components";
+import AddRating from "./rating/AddRating";
 
-const BookCard = ({title, desc, rating}) => {
-
+const BookCard = ({ bookKey, title, desc, rating }) => {
   // image url, book title, short desc
 
   return (
@@ -16,12 +16,11 @@ const BookCard = ({title, desc, rating}) => {
             <Heading size={4}>Rating: {rating}</Heading>
           </Media.Item>
         </Media>
-        <Content>
-          {desc}
-        </Content>
+        <Content>{desc}</Content>
+        <AddRating bookKey={bookKey} />
       </Card.Content>
     </Card>
-  )
-}
- 
+  );
+};
+
 export default BookCard;

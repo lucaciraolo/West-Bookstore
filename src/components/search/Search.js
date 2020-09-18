@@ -2,19 +2,22 @@ import React, { useState, useEffect } from "react";
 import AddRating from "../rating/AddRating";
 
 function Search() {
-    const URL = "https://openlibrary.org/search.json?q=";
-    const SEARCHEND = "&mode=everything";
+  const URL = "https://openlibrary.org/search.json?q=";
+  const SEARCHEND = "&mode=everything";
 
-    const [searchTerm, setSearchTerm] = useState(null);
-    const [searchBoxInput, setSearchBoxInput] = useState("");
-    const [results, setResults] = useState([])
-    useEffect(() => {
-        async function fetchSearch() {
-            const resp = await fetch(URL + encodeURI(searchTerm) + SEARCHEND);
-            const books = await resp.json();
-            setResults(books.docs);
-        }        
-    }, [searchTerm]);
+  const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(null);
+  const [searchBoxInput, setSearchBoxInput] = useState("");
+  const [results, setResults] = useState([]);
+  useEffect(() => {
+    async function fetchSearch() {
+      const resp = await fetch(URL + encodeURI(searchTerm) + SEARCHEND);
+      const books = await resp.json();
+      setResults(books.docs);
+    }
+    fetchSearch();
+    setLoading(true);
+  }, [searchTerm]);
 
   return (
     <div className="App">
@@ -30,15 +33,7 @@ function Search() {
         <button onClick={() => setSearchTerm(searchBoxInput)}>Search</button>
       </header>
       <section>
-          { results.map((result) => {
-              return (<div>
-                  <h3>{result.title} </h3>
-                  <p> {result.author_name && result.author_name.map((author) => author).join(',')} </p>
-                  <AddRating bookKey={result.key.substring(7)}/>
-                </div>)
-          })}
         {results.map((result) => {
-          console.log(result);
           return (
             <div>
               <h3>{result.title} </h3>
@@ -47,7 +42,7 @@ function Search() {
                 {result.author_name &&
                   result.author_name.map((author) => author).join(",")}{" "}
               </p>
-              <AddRating key={result} />
+              <AddRating bookKey={result.key.substring(7)} />
             </div>
           );
         })}
